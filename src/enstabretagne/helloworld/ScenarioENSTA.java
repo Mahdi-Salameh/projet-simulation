@@ -24,6 +24,7 @@ public class ScenarioENSTA extends Scenario{
 		
 		Post(new CreerEtudiant(getEngine().SimulationDate().add(LogicalDuration.ofMinutes(8)), "Salameh"));
 	}
+	
 	@Override
 	public void activate() {
 		for(EntiteSimulee e: getEntites()) {
