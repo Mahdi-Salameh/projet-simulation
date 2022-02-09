@@ -59,6 +59,10 @@ public class SimuEngine {
 		return false;
 	}
 	
+	public List<EntiteSimulee> getEntites() {
+		return mesEntitesSimulees;
+	}
+
 	public void setCurrentScenario(Scenario sc) {
 		// TODO Auto-generated method stub
 		

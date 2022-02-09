@@ -1,5 +1,7 @@
 package enstabretagne.engine;
 
+import java.util.List;
+
 import enstabretagne.base.time.LogicalDateTime;
 
 public abstract class EntiteSimulee {
@@ -18,6 +20,10 @@ public abstract class EntiteSimulee {
 	public LogicalDateTime Now() {
 		return engine.getCurrentDate();
 	}
+	
+	public List<EntiteSimulee> getEntites() {
+		return engine.mesEntitesSimulees;
+	} 
 	
 	public SimuEngine getEngine() {
 		return engine;
