@@ -26,7 +26,8 @@
 				"Fatal",
 				"Data",
 				"DataSimple",
-				"DataRecordable"
+				"DataRecordable",
+				"Detail"
 		    ]
         },
         {

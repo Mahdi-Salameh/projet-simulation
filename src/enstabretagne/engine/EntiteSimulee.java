@@ -18,7 +18,7 @@ public abstract class EntiteSimulee {
 	}
 	
 	public LogicalDateTime Now() {
-		return engine.getCurrentDate();
+		return engine.SimulationDate();
 	}
 	
 	public List<EntiteSimulee> getEntites() {

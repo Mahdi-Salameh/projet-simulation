@@ -22,4 +22,9 @@ public class EtudiantSimple extends EntiteSimulee{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public String toString() {
+		return this.nom;
+	}
 }

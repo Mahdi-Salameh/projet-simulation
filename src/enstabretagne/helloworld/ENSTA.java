@@ -11,13 +11,13 @@ public class ENSTA {
 		LogicalDateTime start = new LogicalDateTime("04/12/2019 14:00");
 		LogicalDateTime end = new LogicalDateTime("04/12/2019 15:00");
 
-		PlanHelloWorld plan = new PlanHelloWorld(engine, 3, start, end);
+		PlanHelloWorld plan = new PlanHelloWorld(engine, 1, start, end);
 		plan.initScenarii();
 		
 		while(plan.hasNextScenario())
 		{
 			plan.nextScenario().creerEntiteSimulees();
-			engine.activateSimulation(start,end);
+			engine.activateSimulation();
 			engine.simulate();
 			engine.terminate();
 		}

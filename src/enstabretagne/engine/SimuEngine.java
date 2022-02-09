@@ -3,37 +3,29 @@ package enstabretagne.engine;
 import java.util.ArrayList;
 import java.util.List;
 
+import enstabretagne.base.logger.Logger;
 import enstabretagne.base.time.LogicalDateTime;
+import enstabretagne.simulation.basics.IScenarioIdProvider;
+import enstabretagne.simulation.basics.ISimulationDateProvider;
+import enstabretagne.simulation.basics.ScenarioId;
 import enstabretagne.simulation.basics.SortedList;
 
-public class SimuEngine {
+public class SimuEngine implements ISimulationDateProvider,IScenarioIdProvider{
 	
 	private SortedList<SimEvent> echeancier;
 	private LogicalDateTime start;
 	private LogicalDateTime end;
 	private LogicalDateTime currentDate;
-	protected List<EntiteSimulee> mesEntitesSimulees; 
+	protected List<EntiteSimulee> mesEntitesSimulees;
+	private Scenario currentScenario; 
 	
-	protected LogicalDateTime getCurrentDate()
-	{
-		return currentDate;
-	}
-	
+
 	public SimuEngine() {
 		echeancier = new SortedList<>();
 		mesEntitesSimulees = new ArrayList<>();
+		Logger.setDateProvider(this);
 	}
 	
-	public void initSimulation(LogicalDateTime start, LogicalDateTime end) {
-		this.start=start;
-		currentDate = this.start;
-		this.end = end;
-		
-		for(EntiteSimulee e:mesEntitesSimulees)
-		{
-			e.Init();
-		}
-	}
 	
 	protected void Post(SimEvent ev) {
 		echeancier.add(ev);
@@ -64,23 +56,43 @@ public class SimuEngine {
 	}
 
 	public void setCurrentScenario(Scenario sc) {
-		// TODO Auto-generated method stub
+		this.currentScenario = sc;
 		
+		if(currentScenario != null) {
+			this.start= currentScenario.debut;
+			currentDate = this.start;
+			this.end = currentScenario.fin;
+		}
 	}
 
 	public void terminate() {
-		// TODO Auto-generated method stub
+		this.echeancier.clear();
+		this.mesEntitesSimulees.clear();
+		this.start = null;
+		this.end = null;
+		this.currentDate = null;
+		this.currentScenario = null;
 		
 	}
 
-	public void activateSimulation(LogicalDateTime start2, LogicalDateTime end2) {
-		// TODO Auto-generated method stub
-		
+	public void activateSimulation() {
+			
+			for(EntiteSimulee e:mesEntitesSimulees)
+			{
+				e.Init();
+			}	
+				
 	}
 
 	public LogicalDateTime SimulationDate() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return currentDate;
+	}
+
+
+	@Override
+	public ScenarioId getScenarioId() {
+		return currentScenario.getId();
 	}
 	
 }

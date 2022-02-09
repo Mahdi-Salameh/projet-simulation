@@ -17,12 +17,14 @@ public class PlanHelloWorld extends Plan{
 	public PlanHelloWorld(SimuEngine engine, int nbReplique, LogicalDateTime debut, LogicalDateTime fin) {
 		super(engine, nbReplique);
 		enstaSC = new LinkedList<>();
+		this.debut = debut;
+		this.fin = fin;
 	}
 
 	@Override
 	public void initScenarii() {
-		for(int i=0;i<getNbReplique();i++)
-			enstaSC.add(new ScenarioENSTA(getEngine(), "Scenario 1 Etudiant", i, debut, fin, 1));
+		//for(int i=0;i<getNbReplique();i++)
+		//	enstaSC.add(new ScenarioENSTA(getEngine(), "Scenario 1 Etudiant", i, debut, fin, 1));
 		for(int i = 0; i<getNbReplique();i++)
 			enstaSC.add(new ScenarioENSTA(getEngine(), "Scenario 3 Etudiants", i, debut, fin, 3));
 		

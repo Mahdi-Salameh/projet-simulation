@@ -6,6 +6,8 @@ import enstabretagne.simulation.basics.ScenarioId;
 public abstract class Scenario extends EntiteSimulee{
 
 	int graine;
+	LogicalDateTime debut;
+	LogicalDateTime fin;
 	public int getGraine() {
 		return graine;
 	}
@@ -13,6 +15,8 @@ public abstract class Scenario extends EntiteSimulee{
 		super(engine);
 		id = new ScenarioId(name, graine);
 		this.graine = graine;
+		this.debut = debut;
+		this.fin = fin;
 	}
 	
 	

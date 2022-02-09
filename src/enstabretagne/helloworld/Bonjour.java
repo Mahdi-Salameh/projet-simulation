@@ -16,7 +16,8 @@ public class Bonjour extends SimEvent {
 	
 	
 	public void process() {
-		Logger.Detail(null, "bonjour.Process", "Bonjour de la part de "+nom + " à " +getDateOccurence());
+		Logger.Detail(this.entitePorteuseEvenement, "bonjour.Process", "Bonjour de la part de "+nom + " à " +getDateOccurence());
+		Logger.Detail(this.entitePorteuseEvenement, "Entites", "" + this.entitePorteuseEvenement.getEntites().stream().filter(e->e instanceof EtudiantSimple).toList());
 		this.rescheduleAt(getDateOccurence().add(LogicalDuration.ofMinutes(5)));
 		entitePorteuseEvenement.Post(this);
 	}
