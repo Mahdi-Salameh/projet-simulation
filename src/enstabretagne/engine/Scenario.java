@@ -8,9 +8,8 @@ public abstract class Scenario extends EntiteSimulee{
 	int graine;
 	LogicalDateTime debut;
 	LogicalDateTime fin;
-	public int getGraine() {
-		return graine;
-	}
+	ScenarioId id;
+	
 	public Scenario(SimuEngine engine, String name, int graine, LogicalDateTime debut, LogicalDateTime fin) {
 		super(engine);
 		id = new ScenarioId(name, graine);
@@ -19,19 +18,19 @@ public abstract class Scenario extends EntiteSimulee{
 		this.fin = fin;
 	}
 	
+	public int getGraine() {
+		return graine;
+	}	
 	
 	public void setGraine(int graine) {
 		id.setRepliqueNumber(graine);
 		this.graine = graine;
 	}
 
-	ScenarioId id;
 	ScenarioId getId() {
 		return id;
 	}
 	
 	public abstract void creerEntiteSimulees();
-	
-	
 
 }

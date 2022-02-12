@@ -3,18 +3,16 @@ package enstabretagne.engine;
 public abstract class Plan {
 	
 	private int nbReplique;
-
+	protected SimuEngine engine;
+	private int currentRepliqueNumber;
+	
 	public int getNbReplique() {
 		return nbReplique;
 	}
 
-	protected SimuEngine engine;
-
 	public SimuEngine getEngine() {
 		return engine;
 	}
-	
-	private int currentRepliqueNumber;
 
 	public int getCurrentRepliqueNumber() {
 		return currentRepliqueNumber;

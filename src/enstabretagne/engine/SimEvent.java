@@ -5,15 +5,15 @@ import enstabretagne.base.time.LogicalDateTime;
 public abstract class SimEvent implements Comparable<SimEvent> {
 	protected EntiteSimulee entitePorteuseEvenement;
 	private LogicalDateTime d;
-	protected LogicalDateTime getDateOccurence()
-	{
+	
+	protected LogicalDateTime getDateOccurence(){
 		return d;
 	}
 
-	protected void rescheduleAt(LogicalDateTime d)
-	{
+	protected void rescheduleAt(LogicalDateTime d){
 		this.d=d;
 	}
+	
 	public SimEvent(LogicalDateTime d) {
 		this.d=d;
 	}
