@@ -23,11 +23,11 @@ public class PlanSalon extends Plan{
 
 	@Override
 	public void initScenarii() {
-		/*for(int i=0;i<getNbReplique();i++)
-			enstaSC.add(new ScenarioENSTA(getEngine(), "Scenario 1 Etudiant", i, debut, fin, 1));
-		for(int i = 0; i<getNbReplique();i++)
-			salonSC.add(new ScenarioENSTA(getEngine(), "Scenario 3 Etudiants", i, debut, fin, 3));
-		*/
+		for(int i=0;i<getNbReplique();i++)
+			salonSC.add(new ScenarioSalon(getEngine(), "Scenario 1 Client", i, debut, fin, 1));
+		/*for(int i = 0; i<getNbReplique();i++)
+			salonSC.add(new ScenarioSalon(getEngine(), "Scenario 3 Clients", i, debut, fin, 3));*/
+		
 	}
 
 	@Override

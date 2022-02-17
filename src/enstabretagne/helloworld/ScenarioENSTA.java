@@ -9,12 +9,12 @@ import enstabretagne.engine.SimuEngine;
 
 public class ScenarioENSTA extends Scenario{
 	
+	int nbEtudiants;
+	
 	public ScenarioENSTA(SimuEngine engine, String name, int graine, LogicalDateTime debut, LogicalDateTime fin, int nbEtudiants) {
 		super(engine, name, graine, debut, fin);
 		this.nbEtudiants = nbEtudiants;
 	}
-
-	int nbEtudiants;
 
 	@Override
 	public void creerEntiteSimulees() {

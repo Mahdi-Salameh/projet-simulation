@@ -4,11 +4,11 @@ import enstabretagne.base.time.LogicalDuration;
 import enstabretagne.engine.EntiteSimulee;
 import enstabretagne.engine.SimuEngine;
 
-public class Client extends EntiteSimulee{
-
-	String nom;
+public class Coiffeur extends EntiteSimulee{
 	
-	public Client(SimuEngine engine, String nom) {
+	String nom;
+
+	public Coiffeur(SimuEngine engine, String nom) {
 		super(engine);
 		this.nom = nom;
 	}
@@ -16,6 +16,7 @@ public class Client extends EntiteSimulee{
 	@Override
 	public void Init() {
 		Post(new Coupure(Now().add(LogicalDuration.ofMinutes(15)), nom));
+		
 	}
 
 	@Override
